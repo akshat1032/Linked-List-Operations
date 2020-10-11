@@ -55,9 +55,10 @@ public class MyLinkedList <K>{
 	
 	//Method to insert between any two nodes
 	//Not inclusive of inserting at beginning or end of the list
-	public void insert(INode firstNode, INode secondNode, INode insertNode) {
+	public void insert(INode firstNode, INode insertNode) {
+		INode tempNode = firstNode.getNext();
 		firstNode.setNext(insertNode);
-		insertNode.setNext(secondNode);
+		insertNode.setNext(tempNode);
 	}
 
 	// Delete first element of linked list
