@@ -1,6 +1,6 @@
 package com.capgemini.linkedlistoperations;
 
-public class MyLinkedList <K>{
+public class MyLinkedList<K> {
 
 	public INode head;
 	public INode tail;
@@ -37,8 +37,8 @@ public class MyLinkedList <K>{
 
 		}
 	}
-	
-	//Method to print list
+
+	// Method to print list
 	public void printLinkedList() {
 		String myNodes = "LinkedList Sequence: ";
 		INode tempNode = head;
@@ -52,9 +52,9 @@ public class MyLinkedList <K>{
 		myNodes = myNodes + tempNode.getKey();
 		System.out.println(myNodes);
 	}
-	
-	//Method to insert between any two nodes
-	//Not inclusive of inserting at beginning or end of the list
+
+	// Method to insert between any two nodes
+	// Not inclusive of inserting at beginning or end of the list
 	public void insert(INode firstNode, INode insertNode) {
 		INode tempNode = firstNode.getNext();
 		firstNode.setNext(insertNode);
@@ -67,8 +67,8 @@ public class MyLinkedList <K>{
 		this.head.setNext(null);
 		this.head = tempNode;
 	}
-	
-	//Delete last element of linked list
+
+	// Delete last element of linked list
 	public void popLast() {
 		INode tempNode = head;
 		while (tempNode.getNext().getNext() != null) {
@@ -78,9 +78,10 @@ public class MyLinkedList <K>{
 		tempNode.setNext(null);
 	}
 
+	// Search element and return node
 	public INode search(K search) {
 		INode tempNode = head;
-		while(tempNode.getNext()!=null) {
+		while (tempNode.getNext() != null) {
 			if (tempNode.getKey().equals(search)) {
 				break;
 			}
@@ -88,4 +89,37 @@ public class MyLinkedList <K>{
 		}
 		return tempNode;
 	}
+
+	// Delete a node
+	public void delete(INode nodeToDelete) {
+		if (nodeToDelete.equals(this.head)) {
+			this.pop();
+		}
+		if (nodeToDelete.equals(this.tail)) {
+			this.popLast();
+		} else {
+			INode tempNode = head;
+			while (tempNode.getNext() != nodeToDelete) {
+				tempNode = tempNode.getNext();
+			}
+			tempNode.setNext(nodeToDelete.getNext());
+			nodeToDelete.setNext(null);
+		}
+
+	}
+
+	// Find size of linked list
+	public void size() {
+		int size = 0;
+		INode node = head;
+		if (node == null) {
+			size = 0;
+		} else {
+			while (node.getNext() != null) {
+				size++;
+			}
+		}
+		System.out.println("The size of the linked list is : " + size);
+	}
+
 }
