@@ -1,6 +1,6 @@
 package com.capgemini.linkedlistoperations;
 
-public class MyLinkedList {
+public class MyLinkedList <K>{
 
 	public INode head;
 	public INode tail;
@@ -75,5 +75,16 @@ public class MyLinkedList {
 		}
 		this.tail = tempNode;
 		tempNode.setNext(null);
+	}
+
+	public INode search(K search) {
+		INode tempNode = head;
+		while(tempNode.getNext()!=null) {
+			if (tempNode.getKey().equals(search)) {
+				break;
+			}
+			tempNode = tempNode.getNext();
+		}
+		return tempNode;
 	}
 }
