@@ -1,9 +1,22 @@
 package com.capgemini.linkedlistoperations;
 
-public class LinkedListOperations {
+public class LinkedListOperations<K> {
+
+	//Instance variables for key and address of node	
+	private K key;
+	private LinkedListOperations next;
+
+	public LinkedListOperations(K key) {
+		this.key = key;
+		this.next = null;
+	}
 	
-	public static void main(String[] args) {
-		//Welcome message displayed
-		System.out.println("Welcome to linked list operations program");
+	//Getters and setters
+	public LinkedListOperations getNext() {
+		return next;
+	}
+
+	public void setNext(LinkedListOperations next) {
+		this.next = next;
 	}
 }
