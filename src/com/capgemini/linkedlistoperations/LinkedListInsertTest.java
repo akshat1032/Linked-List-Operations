@@ -16,7 +16,7 @@ public class LinkedListInsertTest {
 		myLinkedList.append(secondNode);
 		myLinkedList.printLinkedList();
 		LinkedListOperations<Integer> insertNode = new LinkedListOperations<Integer>(30);
-		myLinkedList.insert(firstNode, secondNode, insertNode);
+		myLinkedList.insert(firstNode, insertNode);
 		myLinkedList.printLinkedList();
 		boolean outcome = myLinkedList.head.equals(firstNode) && firstNode.getNext().equals(insertNode)
 				&& insertNode.getNext().equals(secondNode) && myLinkedList.tail.equals(secondNode);
