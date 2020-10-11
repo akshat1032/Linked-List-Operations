@@ -59,4 +59,11 @@ public class MyLinkedList {
 		firstNode.setNext(insertNode);
 		insertNode.setNext(secondNode);
 	}
+
+	// Delete first element of linked list
+	public void pop() {
+		INode tempNode = this.head.getNext();
+		this.head.setNext(null);
+		this.head = tempNode;
+	}
 }
