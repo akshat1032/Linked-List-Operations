@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class LinkedListDeleteElementTest {
+	MyLinkedList myLinkedList = new MyLinkedList();
 
 	// Delete certain element in linked list after finding node
 	@Test
@@ -14,18 +15,20 @@ public class LinkedListDeleteElementTest {
 		LinkedListOperations<Integer> secondNode = new LinkedListOperations<Integer>(30);
 		LinkedListOperations<Integer> thirdNode = new LinkedListOperations<Integer>(40);
 		LinkedListOperations<Integer> fourthNode = new LinkedListOperations<Integer>(70);
-		MyLinkedList myLinkedList = new MyLinkedList();
 		myLinkedList.append(firstNode);
 		myLinkedList.append(secondNode);
 		myLinkedList.append(thirdNode);
 		myLinkedList.append(fourthNode);
-		myLinkedList.size();
 		myLinkedList.printLinkedList();
 		INode nodeWithKey = myLinkedList.search(40);
 		myLinkedList.delete(nodeWithKey);
 		myLinkedList.printLinkedList();
+		int expectedSize = 3;
+		int actualSize = myLinkedList.size();
+		
 		Boolean outcome = myLinkedList.head.equals(firstNode) && firstNode.getNext().equals(secondNode)
 				&& secondNode.getNext().equals(fourthNode) && myLinkedList.tail.equals(fourthNode);
 		Assert.assertTrue(outcome);
+		Assert.assertEquals(expectedSize, actualSize);
 	}
 }

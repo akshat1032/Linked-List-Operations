@@ -109,7 +109,7 @@ public class MyLinkedList<K> {
 	}
 
 	// Find size of linked list
-	public void size() {
+	public int size() {
 		int size = 0;
 		INode node = head;
 		if (node == null) {
@@ -119,7 +119,7 @@ public class MyLinkedList<K> {
 				size++;
 			}
 		}
-		System.out.println("The size of the linked list is : " + size);
+		return size;
 	}
 
 }
