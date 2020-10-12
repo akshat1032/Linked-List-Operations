@@ -62,10 +62,10 @@ public class MyLinkedList<K> {
 	}
 
 	// Delete first element of linked list
-	public void pop() {
-		INode tempNode = this.head.getNext();
-		this.head.setNext(null);
-		this.head = tempNode;
+	public INode pop() {
+		INode tempNode = this.head;
+		this.head = head.getNext();
+		return tempNode;
 	}
 
 	// Delete last element of linked list

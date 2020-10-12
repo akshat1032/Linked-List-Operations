@@ -19,4 +19,12 @@ public class MyStack <K>{
 		myLinkedList.printLinkedList();
 	}
 
+	public INode peak() {
+		return myLinkedList.head;
+	}
+
+	public INode pop() {
+		return myLinkedList.pop();
+	}
+
 }
